@@ -204,7 +204,75 @@ ExtUtils::CAPI - Export C functions between Perl XS modules
 
 =head1 DESCRIPTION
 
-TODO
+Defines a C API exported from a C/XS module that can be used from
+other C/XS modules.
+
+=head2 Defining the API
+
+in F<Makefile.PL>:
+
+    use ExtUtils::CAPI;
+    ExtUtils::CAPI::export_functions(
+      module => 'Some::Module',
+      header => "some_module_api.h",
+      functions => {
+        some_module_function => 'int (*)(int, int)',
+      },
+    );
+
+    # make sure some_module_api.h is installed, for example by using
+    # File::ShareDir
+
+in the F<.xs> file:
+
+    #include "some_module_api.h"
+
+    int
+    some_module_function(int a, int b) {
+        /* ... */
+        return 0;
+    }
+
+    MODULE = Some::Module PACKAGE = Some::Package
+
+    # ...
+
+in the F<.pm> file:
+
+    use ExtUtils::CAPI;
+
+=head2 Using the API
+
+in F<Makefile.PL>:
+
+    WriteMakefile(
+        NAME              => 'MyModule',
+        # ...
+        PREREQ_PM         => {
+            'Some::Module' => 0,
+        },
+        # ...
+        INC               => '-I. ' . '-I' . <path to some_module_api.h>,
+    );
+
+in the F<.xs> file:
+
+    #include "some_module_api.h"
+
+    DEFINE_SYMBOLS_Some_Module
+
+    /* ... use some_module_function ... */
+
+    MODULE = MyModule PACKAGE = MyModule
+
+    BOOT:
+      INIT_SYMBOLS_Some_Module;
+
+    # ... use some_module_function
+
+in the F<.pm> file:
+
+    use Some::Module;
 
 =head1 AUTHOR
 
