@@ -1,0 +1,16 @@
+/ExtUtils-CAPI*
+/pod2htm?.tmp
+Makefile
+Makefile.old
+blib
+pm_to_blib
+META.*
+MYMETA.*
+*.o
+*.obj
+*.bs
+.*.sw*
+/t/modules/withcapi/WithCAPI.c
+/t/modules/withcapi/module_withcapi.h
+/t/modules/usingcapi/Foo.c
+/t/modules/withcapi/api/module_withcapi.h

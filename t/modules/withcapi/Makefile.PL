@@ -14,10 +14,10 @@ WriteMakefile(
     AUTHOR            => 'Steffen Mueller <smueller@cpan.org>',
     LIBS              => [''], # e.g., '-lm'
     DEFINE            => '', # e.g., '-DHAVE_SOMETHING'
-    INC               => '-I. -I../Module-WithCAPI', # e.g., '-I. -I/usr/include/other'
+    INC               => '-I. -I../../..', # e.g., '-I. -I/usr/include/other',
 );
 
-use lib 'lib'; # TODO won't be necessary after ExtUtils::CAPI moves out of this dist
+use blib '../../../blib';
 use ExtUtils::CAPI;
 ExtUtils::CAPI::export_functions(
   module => $module,

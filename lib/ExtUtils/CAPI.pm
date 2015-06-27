@@ -4,6 +4,8 @@ use warnings;
 
 use DynaLoader;
 
+our $VERSION = '0.01';
+
 sub export_functions {
   my %opt = @_;
   my $module = $opt{module} // die "Need 'module' option";
