@@ -1,21 +1,23 @@
 use 5.014002;
 use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
+use File::ShareDir::Install;
 
 my $module = 'Module::WithCAPI';
 
 use blib '../../../blib';
 use ExtUtils::CAPI;
+mkdir 'api' unless -d 'api';
 ExtUtils::CAPI::export_functions(
   module => $module,
-  header => "module_withcapi.h",
+  header => "api/module_withcapi.h",
   functions => {
     my_sum => 'int (*)(int, int)',
     my_diff => 'int (*)(int, int)',
     my_prod => 'int (*)(int, int)',
   },
 );
+
+install_share 'api';
 
 WriteMakefile(
     NAME              => $module,
@@ -27,6 +29,8 @@ WriteMakefile(
     AUTHOR            => 'Steffen Mueller <smueller@cpan.org>',
     LIBS              => [''], # e.g., '-lm'
     DEFINE            => '', # e.g., '-DHAVE_SOMETHING'
-    INC               => '-I. -I../../..', # e.g., '-I. -I/usr/include/other',
+    INC               => '-Iapi -I../../..', # e.g., '-I. -I/usr/include/other',
 );
 
+package MY;
+use File::ShareDir::Install qw(postamble);

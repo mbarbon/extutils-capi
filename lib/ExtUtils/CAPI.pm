@@ -183,4 +183,11 @@ sub _resolve_symbols {
   }
   return \%syms;
 }
+
+sub include_path {
+  require File::ShareDir;
+
+  return join " ", map "-I$_", map File::ShareDir::dist_dir($_), @_;
+}
+
 1;
