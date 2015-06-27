@@ -4,6 +4,19 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 
 my $module = 'Module::WithCAPI';
+
+use blib '../../../blib';
+use ExtUtils::CAPI;
+ExtUtils::CAPI::export_functions(
+  module => $module,
+  header => "module_withcapi.h",
+  functions => {
+    my_sum => 'int (*)(int, int)',
+    my_diff => 'int (*)(int, int)',
+    my_prod => 'int (*)(int, int)',
+  },
+);
+
 WriteMakefile(
     NAME              => $module,
     VERSION_FROM      => 'lib/Module/WithCAPI.pm', # finds $VERSION
@@ -17,14 +30,3 @@ WriteMakefile(
     INC               => '-I. -I../../..', # e.g., '-I. -I/usr/include/other',
 );
 
-use blib '../../../blib';
-use ExtUtils::CAPI;
-ExtUtils::CAPI::export_functions(
-  module => $module,
-  header => "module_withcapi.h",
-  functions => {
-    my_sum => 'int (*)(int, int)',
-    my_diff => 'int (*)(int, int)',
-    my_prod => 'int (*)(int, int)',
-  },
-);
