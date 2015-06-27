@@ -191,3 +191,33 @@ sub include_path {
 }
 
 1;
+
+__END__
+
+=head1 NAME
+
+ExtUtils::CAPI - Export C functions between Perl XS modules
+
+=head1 SYNOPSIS
+
+  # sorry, no TL;DR, see below
+
+=head1 DESCRIPTION
+
+TODO
+
+=head1 AUTHOR
+
+Steffen Mueller, E<lt>smueller@cpan.orgE<gt>
+
+Mattia Barbon, E<lt>mattia@barbon.orgE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2014 by Steffen Mueller
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.14.2 or,
+at your option, any later version of Perl 5 you may have available.
+
+=cut

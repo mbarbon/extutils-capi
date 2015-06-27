@@ -12,4 +12,8 @@ WriteMakefile(
         'Steffen Mueller <smueller@cpan.org>',
         'Mattia Barbon <mattia@barbon.org>',
     ],
+    TEST_REQUIRES     => {
+        'File::ShareDir'    => '1.00',
+        'Capture::Tiny'     => '0.22',
+    },
 );

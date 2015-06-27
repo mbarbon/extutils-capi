@@ -1,0 +1,15 @@
+Changes
+lib/ExtUtils/CAPI.pm
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+ppport.h
+t/ExtUtils-CAPI.t
+t/modules/usingcapi/Foo.xs
+t/modules/usingcapi/lib/Foo.pm
+t/modules/usingcapi/Makefile.PL
+t/modules/usingcapi/t/Foo.t
+t/modules/withcapi/lib/Module/WithCAPI.pm
+t/modules/withcapi/Makefile.PL
+t/modules/withcapi/t/Module-WithCAPI.t
+t/modules/withcapi/WithCAPI.xs
