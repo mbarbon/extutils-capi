@@ -21,15 +21,11 @@ install_share 'api';
 
 WriteMakefile(
     NAME              => $module,
-    VERSION_FROM      => 'lib/Module/WithCAPI.pm', # finds $VERSION
+    VERSION_FROM      => 'lib/Module/WithCAPI.pm',
     PREREQ_PM         => {
-#      'ExtUtils::CAPI' => '0',
-    }, # e.g., Module::Name => 1.1
-    ABSTRACT_FROM     => 'lib/Module/WithCAPI.pm', # retrieve abstract from module
-    AUTHOR            => 'Steffen Mueller <smueller@cpan.org>',
-    LIBS              => [''], # e.g., '-lm'
-    DEFINE            => '', # e.g., '-DHAVE_SOMETHING'
-    INC               => '-Iapi -I../../..', # e.g., '-I. -I/usr/include/other',
+      'ExtUtils::CAPI' => '0',
+    },
+    INC               => '-Iapi -I../../..',
 );
 
 package MY;

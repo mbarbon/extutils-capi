@@ -7,4 +7,9 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME              => "ExtUtils::CAPI",
     VERSION_FROM      => "lib/ExtUtils/CAPI.pm",
+    ABSTRACT_FROM     => 'lib/ExtUtils/CAPI.pm',
+    AUTHOR            => [
+        'Steffen Mueller <smueller@cpan.org>',
+        'Mattia Barbon <mattia@barbon.org>',
+    ],
 );

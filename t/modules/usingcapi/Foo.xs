@@ -10,7 +10,7 @@
 /* The actual definition of the fptr storage */
 DEFINE_SYMBOLS_Module_WithCAPI
 
-MODULE = Foo		PACKAGE = Foo		
+MODULE = Foo		PACKAGE = Foo
 
 BOOT:
   /* Goes and looks up symbols, assigning to our fptrs. */

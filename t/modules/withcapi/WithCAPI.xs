@@ -24,5 +24,4 @@ my_prod(int a, int b)
   return a * b;
 }
 
-MODULE = Module::WithCAPI		PACKAGE = Module::WithCAPI		
-
+MODULE = Module::WithCAPI		PACKAGE = Module::WithCAPI
